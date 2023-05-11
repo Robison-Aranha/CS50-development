@@ -1,0 +1,45 @@
+{% extends "layout.html"%}
+
+
+{% block title %}
+
+    History
+
+{% endblock %}
+
+{% block main %}
+    <table class="table tablestriped" >
+        <thead>
+            <tr>
+                <th class="text-start" >Bought</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itens in bought %}
+                <tr>
+                    <td class="text-start" >{{ itens["symbol"] }}</td>
+                    <td class="text-start" >{{ itens["name"] }}</td>
+                    <td class="text-end" >{{ itens["shares"] }}</td>
+                    <td class="text-end" >{{ itens["data"] }}</td>
+                </tr>
+            {% endfor %}
+        <tbody>
+    </table>
+    <table class="table tablestriped">
+        <thead>
+            <tr>
+                <th class="text-start">Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itens in sold %}
+                <tr>
+                    <td class="text-start" >{{ itens["symbol"] }}</td>
+                    <td class="text-start" >{{ itens["name"] }}</td>
+                    <td class="text-end" >{{ itens["shares"] }}</td>
+                    <td class="text-end" >{{ itens["data"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

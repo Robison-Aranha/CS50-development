@@ -1,0 +1,21 @@
+body
+{
+    background-color: black;
+    color: white;
+}
+.centered
+{
+    text-align: center;
+}
+.large
+{
+    font-size: large;
+}
+.medium
+{
+    font-size: medium;
+}
+.small
+{
+    font-size: small;
+}

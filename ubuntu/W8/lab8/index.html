@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            function respostas(valor)
+            {
+                if (valor.value == "Cretáceo")
+                {
+                    valor.style.backgroundColor = "green";
+                    document.querySelector("#msg1").innerHTML = "Correto!";
+                    document.querySelector("#msg1").style.color = "green";
+                }
+                else if (valor.value == "Enviar")
+                {
+                    if (document.querySelector("#resposta").value == 1995)
+                    {
+                        document.querySelector("#resposta").value = "";
+                        document.querySelector("#resposta").style.backgroundColor = "green";
+                        document.querySelector("#msg2").innerHTML = "Correto!";
+                        document.querySelector("#msg2").style.color = "green";
+                    }
+                    else
+                    {
+                        document.querySelector("#resposta").value = "";
+                        document.querySelector("#resposta").style.backgroundColor = "red";
+                        document.querySelector("#msg2").innerHTML = "Errado!";
+                        document.querySelector("#msg2").style.color = "red";
+                    }
+                }
+                else
+                {
+                    valor.style.backgroundColor = "red";
+                    document.querySelector("#msg1").innerHTML = "Errado!";
+                    document.querySelector("#msg1").style.color = "red";
+                }
+                    
+            }
+
+            // TODO: Add code to check answers to questions
+
+        </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <h3> Qual periodo o Tiranossauro-Rex viveu? </h3>
+                <form>
+                    <input onclick="respostas(this)" type="submit" value="Cretáceo">
+                    <input onclick="respostas(this)" type="submit" value="Jurrásico">
+                    <input onclick="respostas(this)" type="submit" value="Triássico">
+                    <input onclick="respostas(this)" type="submit" value="Paleogeno">
+                </form>
+                <h4 id="msg1"><h4>
+                <!-- TODO: Add multiple choice question here -->
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <h3> Quando o JS foi lançado? </h3>
+                <form>
+                    <input id="resposta" placeholder="Digite sua resposta..." type="text"> 
+                    <input onclick="respostas(this)" type="submit" value="Enviar">
+                </form>
+                <h4 id="msg2"><h4>
+
+                <!-- TODO: Add free response question here -->
+
+            </div>
+
+        </div>
+    </body>
+</html>

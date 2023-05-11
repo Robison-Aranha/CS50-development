@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            Joguinho do Róger
+        </title>
+    </head>
+    <style>
+        canvas {
+            border: solid 1px;
+        }
+    </style>
+    <body>
+        <center>
+            <canvas width="1280" height="800" style="border: 2px solid black" onmousemove="posMouse(event)" onclick="clickMouse(event)"></canvas>
+        </center>
+        <script>
+            var canvas = document.querySelector("canvas");
+            var contexto = canvas.getContext("2d");
+            var count = 0;
+            var x = 0;
+            var y = 0;
+            var image = new Image();
+            image.src = "rice.jpg";
+            var p1 = {
+                x: canvas.width / 2,
+                y: canvas.height / 2
+            };
+            if (count == 0){
+                renderizar(-1);
+            }
+            function clickMouse()
+            {
+                if (verificar() == true)
+                {
+                    renderizar(-1);
+                    document.querySelector("h1").innerHTML = "You Caught Me!!";
+                    document.querySelector("canvas").removeAttribute("onmousemove");
+                    document.querySelector("canvas").removeAttribute("onclick");
+                    document.querySelector("#restart").style.display = "inline-block";
+                }
+
+            }
+            function posMouse(event)
+            {
+                x = event.offsetX;
+                y = event.offsetY;
+                verificar();
+            }
+            function getRandomInt(min, max) {
+                return min + Math.floor(Math.random() * (max - min + 1));
+            }
+            function verificar()
+            {
+                if (x <= p1.x + 100 && x >= p1.x - 100)
+                {
+                    if (y <= p1.y + 100 && y >= p1.y - 100)
+                    {
+                        var random = getRandomInt(0, 3);
+                        if (random == 0) {
+                            if ((p1.x + 200) <= canvas.width){
+                                p1.x += 200;
+                            }
+                            else if ((p1.x - 200) >= 0){
+                                p1.x -= 200;
+                            }
+                        }
+                        else if (random == 1){
+                            if ((p1.x - 200) >= 0){
+                                p1.x -= 200;
+                            }
+                            else if ((p1.x + 200) <= canvas.width){
+                                p1.x += 200;
+                            }
+                        }
+                        else if (random == 2){
+                            if ((p1.y + 200) <= canvas.heigth){
+                                p1.y += 200;
+                            }
+                            else if ((p1.y - 200) >= 0){
+                                p1.y -= 200;
+                            }
+                        }
+                        else if (random == 3){
+                            if ((p1.y - 200) >= 0 ){
+                                p1.y -= 200;
+                            }
+                            else if ((p1.y + 200) <= canvas.height){
+                                p1.y += 200;
+                            }
+                        }
+                        renderizar();
+                        return true;
+                    }
+                }
+            }
+            function renderizar()
+            {
+                contexto.clearRect(0, 0, canvas.width, canvas.height);
+                image.src = "rice.jpg";
+                image.onload = function(){
+                    contexto.drawImage(image, p1.x, p1.y, 50, 50)
+                }
+            }
+            count++;
+        </script>
+        <center>
+            <h1>
+                Try to catch me!!
+            </h1>
+            <form>
+                <input id="restart" type="submit" value="Restart" style="display: none;">
+            </form>
+        </center>
+    </body>
+</html>
