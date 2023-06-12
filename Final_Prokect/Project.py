@@ -25,9 +25,9 @@ async def apod(ctx, *expression):
     expression = " ".join(expression)
     expression = expression.split()
     if len(expression) == 1:
-        dict = requests.get(f"https://api.nasa.gov/planetary/apod?count={expression[0]}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        dict = requests.get(f"https://api.nasa.gov/planetary/apod?count={expression[0]}&api_key=API_KEY")
     elif len(expression) == 0:
-        dict = requests.get(f"https://api.nasa.gov/planetary/apod?&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        dict = requests.get(f"https://api.nasa.gov/planetary/apod?&api_key=API_KEY")
     else:
         dict = requests.get(f"https://api.nasa.gov/planetary/apod")
 
@@ -90,10 +90,10 @@ async def Asteroids(ctx, *expression):
     expression = " ".join(expression)
     expression = expression.split()
     if len(expression) == 2:
-        dict = requests.get(f"https://api.nasa.gov/neo/rest/v1/feed?start_date={expression[0]}&end_date={expression[1]}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        dict = requests.get(f"https://api.nasa.gov/neo/rest/v1/feed?start_date={expression[0]}&end_date={expression[1]}&api_key=API_KEY")
         expression = "/".join(expression)
     else:
-        dict = requests.get(f"https://api.nasa.gov/neo/rest/v1/feed?start_date={''.join(expression)}&end_date={''.join(expression)}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        dict = requests.get(f"https://api.nasa.gov/neo/rest/v1/feed?start_date={''.join(expression)}&end_date={''.join(expression)}&api_key=API_KEY")
         expression = "".join(expression)
 
     if dict.status_code == 200 and expression != "":
@@ -131,9 +131,9 @@ async def Location(ctx, *expression):
     expression = expression.split()
     print(expression)
     if len(expression) == 3:
-        request = requests.get(f"https://api.nasa.gov/planetary/earth/assets?lon={expression[0]}&lat={expression[1]}&date={expression[2]}&dim=0.15&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        request = requests.get(f"https://api.nasa.gov/planetary/earth/assets?lon={expression[0]}&lat={expression[1]}&date={expression[2]}&dim=0.15&api_key=API_KEY")
     else:
-        request = requests.get("https://api.nasa.gov/planetary/earth/assets?lon={expression[0]}&lat={expression[1]}&date={expression[2]}&dim=0.15&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        request = requests.get("https://api.nasa.gov/planetary/earth/assets?lon={expression[0]}&lat={expression[1]}&date={expression[2]}&dim=0.15&api_key=API_KEY")
 
     try:
         dict = json.loads(request.content)
@@ -177,9 +177,9 @@ async def Mars(ctx, *expression):
     expression = " ".join(expression)
     expression = expression.split()
     if len(expression) == 3:
-        request = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&camera={expression[1]}&earth_date={expression[2]}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        request = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&camera={expression[1]}&earth_date={expression[2]}&api_key=API_KEY")
     elif len(expression) == 2:
-        request = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&camera={expression[0]}&earth_date={expression[1]}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+        request = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&camera={expression[0]}&earth_date={expression[1]}&api_key=API_KEY")
     else:
         request = requests.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&earth_date=&api_key=DEMO_KEY")
 
@@ -225,7 +225,7 @@ async def Mars(ctx, *expression):
                 break
 
             page += 1
-            dict = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&page={page}&camera={expression[1]}&earth_date={expression[2]}&api_key=JVbbhqTC3JJECdmFhLvlDl2cVfm9anqypt5qK3b5")
+            dict = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?&page={page}&camera={expression[1]}&earth_date={expression[2]}&api_key=API_KEY")
             dict = json.loads(dict.content)
 
             if dict["photos"] == []:
