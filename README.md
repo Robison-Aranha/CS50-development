@@ -1,3 +1,3 @@
 some stuffs I did when I was bored lol...
 
-I made the final project without worrying about details, so ignore the duplicate functions :)
+I made the final project without worrying about details, so ignore bad practices :)
