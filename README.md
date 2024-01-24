@@ -1,3 +1,3 @@
 some stuffs I did when I was bored lol...
 
-I made the final project without worrying about details, so ignore the bad practices I committed :)
+Ignore the bad practices I committed :)
