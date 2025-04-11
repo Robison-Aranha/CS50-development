@@ -1,5 +1,3 @@
-(Meti no google tradutor memo n me julga ^_^ )
-
 # Rice_bot - A universe curiositys bot
 #### Video Demo:  <https://www.youtube.com/watch?v=OeWxxTLdRBw>
 #### Description: Churrasco
